@@ -1115,3 +1115,65 @@ function clearSalesHistory() {
     });
 
 }
+
+/* =========================================
+   FACTORY RESET
+========================================= */
+
+
+function factoryReset() {
+
+    if (
+        !confirm(
+        "WARNING! This will delete ALL DATA."
+        )
+    ) {
+        return;
+    }
+
+    let confirmation =
+    prompt(
+    "Type RESET to continue"
+    );
+
+    if (
+        confirmation !== "RESET"
+    ) {
+        return;
+    }
+
+    fetch(
+    "factory_reset.php"
+    )
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        if (
+            data === "success"
+        ) {
+
+            alert(
+            "Factory Reset Complete!"
+            );
+
+           loadProducts();
+    loadStats();
+    loadAlerts();
+    loadLogs();
+    loadCategoryChart();
+    loadStockChart();
+    loadSaleProducts();
+    loadRevenue();
+    loadTopProduct();
+
+    loadSalesHistory();
+    loadDailySalesChart();
+    loadTopProductsChart();
+
+        }
+
+    });
+
+}

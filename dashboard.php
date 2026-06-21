@@ -456,6 +456,11 @@ if ($stats && $stats->num_rows > 0) {
             Clear Sales History
         </button>
 
+        <button
+onclick="factoryReset()">
+Factory Reset
+</button>
+
 </div>
 
 <!-- =========================================
