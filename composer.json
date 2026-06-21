@@ -1,0 +1,11 @@
+{
+    "name": "ajman/myproject",
+    "authors": [
+        {
+            "name": "Ajman"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.8"
+    }
+}

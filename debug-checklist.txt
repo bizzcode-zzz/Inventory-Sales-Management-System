@@ -1,0 +1,284 @@
+Inventory & Sales Management System
+
+Dahil sa interview balang araw, pwede mong sabihin:
+
+"I built an Inventory and Sales Management System using PHP, MySQL, JavaScript, AJAX, Fetch API, and Chart.js."
+
+
+# WEB DEVELOPMENT DEBUG CHECKLIST
+
+## 1. JAVASCRIPT ERROR CHECK
+
+Buksan:
+
+F12 → Console
+
+Hanapin:
+
+* Red errors
+* Undefined function
+* Syntax errors
+
+Examples:
+
+Uncaught ReferenceError
+
+changePage is not defined
+
+saveProduct is not defined
+
+---
+
+## 2. FETCH RESPONSE CHECK
+
+Bago gumawa ng fix:
+
+console.log(data);
+
+Example:
+
+fetch("fetch_chart.php")
+.then(res => res.json())
+.then(data => {
+
+```
+console.log(data);
+```
+
+});
+
+Tingnan kung tama ang data na galing sa PHP.
+
+---
+
+## 3. JSON CHECK
+
+Kung Chart o AJAX issue:
+
+console.log(Array.isArray(data));
+
+Result:
+
+true
+
+Kapag false:
+
+May problema sa PHP output.
+
+---
+
+## 4. ELEMENT CHECK
+
+Tingnan kung umiiral ang HTML element.
+
+const canvas =
+document.getElementById("categoryChart");
+
+console.log(canvas);
+
+Kapag:
+
+null
+
+Maling ID o wala pa ang element.
+
+---
+
+## 5. CONTEXT CHECK
+
+Para sa Chart.js
+
+const ctx =
+canvas.getContext("2d");
+
+console.log(ctx);
+
+Kapag may lumabas:
+
+CanvasRenderingContext2D
+
+Okay ang canvas.
+
+---
+
+## 6. FUNCTION EXECUTION CHECK
+
+Lagay sa loob ng function:
+
+console.log("FUNCTION CALLED");
+
+Para malaman kung tumatakbo.
+
+---
+
+## 7. CSS FILE CHECK
+
+Sa browser:
+
+document.styleSheets
+
+Tingnan kung may CSS file na naka-load.
+
+---
+
+## 8. CSS FILE LOCATION CHECK
+
+document.styleSheets[0].href
+
+Example:
+
+http://localhost:8080/myproject/css/style.css
+
+---
+
+## 9. CSS RULE CHECK
+
+document.styleSheets[0].cssRules[0].cssText
+
+Makikita ang actual CSS na nababasa ng browser.
+
+---
+
+## 10. BODY BACKGROUND CHECK
+
+getComputedStyle(document.body).backgroundColor
+
+Example:
+
+rgb(49, 51, 56)
+
+Kapag:
+
+rgba(0,0,0,0)
+
+Transparent ang body.
+
+---
+
+## 11. FORCE CSS TEST
+
+body {
+border: 10px solid red !important;
+}
+
+Kapag lumabas:
+
+CSS loaded.
+
+---
+
+## 12. FORCE PAGE TEST
+
+* {
+  background: red !important;
+  }
+
+Para malaman kung nababasa ang CSS file.
+
+---
+
+## 13. NETWORK TAB CHECK
+
+F12 → Network
+
+Refresh
+
+Hanapin:
+
+style.css
+
+app.js
+
+fetch_chart.php
+
+Status dapat:
+
+200 OK
+
+---
+
+## 14. PHP API TEST
+
+Diretsong buksan sa browser:
+
+http://localhost:8080/myproject/fetch_chart.php
+
+Tingnan kung valid JSON.
+
+---
+
+## 15. CHART.JS CHECK
+
+console.log(categoryChart);
+
+Kapag may object:
+
+Chart created successfully.
+
+---
+
+## 16. DUPLICATE CHART CHECK
+
+Error:
+
+Canvas is already in use
+
+Fix:
+
+if (categoryChart) {
+
+```
+categoryChart.destroy();
+
+categoryChart = null;
+```
+
+}
+
+---
+
+## 17. IMAGE PREVIEW CHECK
+
+console.log(image);
+
+Para malaman kung may file na napili.
+
+---
+
+## 18. AJAX SUCCESS CHECK
+
+console.log(data);
+
+Result:
+
+success
+
+error
+
+failed
+
+---
+
+## 19. HTML ELEMENT CHECK
+
+document.getElementById("productList")
+
+Kapag null:
+
+Maling ID.
+
+---
+
+## 20. HARDEST RULE
+
+Huwag agad mag-edit.
+
+Una:
+
+1. Observe
+2. Console
+3. Test
+4. Confirm
+5. Fix
+
+Never guess.

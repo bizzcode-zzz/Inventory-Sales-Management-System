@@ -1,0 +1,335 @@
+/* =========================================
+   GENERAL PAGE SETTINGS
+========================================= */
+
+html,
+body {
+    min-height: 100vh;
+    background-color: #313338;
+    color: #dbdee1;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #313338;
+    color: #dbdee1;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+
+    background: #2b2d31;
+    padding: 25px;
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px rgba(0,0,0,.35);
+}
+
+/* =========================================
+   CARD COMPONENTS
+========================================= */
+
+.card {
+    background: #1e1f22;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h1,
+h2,
+h3 {
+    color: #f2f3f5;
+}
+
+/* =========================================
+   TABLE STYLING
+========================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #2b2d31;
+    border: 1px solid #3f4147;
+}
+
+th {
+    background: #1e1f22;
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #3f4147;
+}
+
+td {
+    color: #dbdee1;
+    vertical-align: middle;
+}
+
+tr:nth-child(even) td {
+    background: #232428;
+}
+
+tr:hover td {
+    background: #404249;
+}
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+input[type=text],
+input[type=number] {
+    background: #1e1f22;
+    color: #dbdee1;
+    border: 1px solid #3f4147;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+    background: #5865f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4752c4;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+    color: #00a8fc;
+}
+
+a:hover {
+    color: #6bc7ff;
+}
+
+/* =========================================
+   ACTION BUTTON COLUMN
+========================================= */
+
+.action-buttons {
+    text-align: center;
+}
+
+/* =========================================
+   TOAST NOTIFICATION
+========================================= */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background: #57f287;
+    color: #000;
+
+    padding: 12px 20px;
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+    z-index: 9999;
+
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #1e1f22;
+    padding: 20px;
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.topbar h1 {
+    margin: 0;
+}
+
+.topbar p {
+    margin: 5px 0 0 0;
+    color: #b5bac1;
+}
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.logout-btn {
+    background: #ed4245;
+    color: white;
+    text-decoration: none;
+
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background: #c73c3f;
+}
+
+/* =========================================
+   IMAGE MODAL
+========================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 99999;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,.9);
+
+    text-align: center;
+}
+
+#modalImage {
+    max-width: 90%;
+    max-height: 90%;
+
+    margin-top: 30px;
+
+    border-radius: 10px;
+}
+
+.closeModal {
+    position: absolute;
+
+    top: 20px;
+    right: 35px;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+/* =========================================
+   STOCK STATUS BADGES
+========================================= */
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge-success {
+    background: #57f287;
+    color: black;
+}
+
+.badge-warning {
+    background: #faa61a;
+    color: black;
+}
+
+.badge-danger {
+    background: #ed4245;
+    color: white;
+}
+
+/* =========================================
+   FORM SPACING
+========================================= */
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   CHART CONTAINER
+========================================= */
+
+.chart-container {
+    height: 400px;
+    width: 100%;
+}
+
+/* =========================================
+   IMAGE PREVIEW
+========================================= */
+
+.preview-image {
+    display: none;
+    border-radius: 10px;
+}
+
+/* =========================================
+   GENERAL SPACING UTILITIES
+========================================= */
+
+.section-space {
+    margin-bottom: 30px;
+}
+
+.small-space {
+    margin-bottom: 10px;
+}
