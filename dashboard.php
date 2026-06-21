@@ -452,6 +452,10 @@ if ($stats && $stats->num_rows > 0) {
     Print Report
 </button>
 
+  <button onclick="clearSalesHistory()">
+            Clear Sales History
+        </button>
+
 </div>
 
 <!-- =========================================
@@ -568,6 +572,8 @@ if ($stats && $stats->num_rows > 0) {
         <button onclick="exportExcel()">
             Export Excel
         </button>
+
+      
 
     </div>
 

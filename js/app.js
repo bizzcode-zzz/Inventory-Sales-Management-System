@@ -1072,5 +1072,46 @@ function printSalesReport() {
     );
 
 
+}
+
+/* =========================================
+   CLEAR HISTORY FUNCTION and reload 
+========================================= */
+
+function clearSalesHistory() {
+
+    if (
+        !confirm(
+        "Delete all sales history?"
+        )
+    ) {
+        return;
+    }
+
+    fetch("clear_sales.php")
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        if (
+            data === "success"
+        ) {
+
+            alert(
+            "Sales history cleared!"
+            );
+
+            loadRevenue();
+
+            loadSalesHistory();
+
+            loadDailySalesChart();
+
+            loadTopProductsChart();
+
+        }
+
+    });
 
 }
