@@ -18,17 +18,72 @@ $keyword = $_GET['keyword'] ?? '';
 $category = $_GET['category'] ?? '';
 $sort = $_GET['sort'] ?? 'newest';
 
+$search = "%{$keyword}%";
+
 
 
 $orderBy = "id DESC";
 
-$totalResult = $conn->query(
-    "SELECT COUNT(*) as total FROM products"
-);
+if (!empty($keyword) && !empty($category)) {
 
-$totalRows = $totalResult->fetch_assoc()['total'];
+    $countStmt = $conn->prepare("
+        SELECT COUNT(*) as total
+        FROM products
+        WHERE product_name LIKE ?
+        AND category = ?
+    ");
 
-$totalPages = ceil($totalRows / $limit);
+    $countStmt->bind_param(
+        "ss",
+        $search,
+        $category
+    );
+
+} elseif (!empty($keyword)) {
+
+    $countStmt = $conn->prepare("
+        SELECT COUNT(*) as total
+        FROM products
+        WHERE product_name LIKE ?
+    ");
+
+    $countStmt->bind_param(
+        "s",
+        $search
+    );
+
+} elseif (!empty($category)) {
+
+    $countStmt = $conn->prepare("
+        SELECT COUNT(*) as total
+        FROM products
+        WHERE category = ?
+    ");
+
+    $countStmt->bind_param(
+        "s",
+        $category
+    );
+
+} else {
+
+    $countStmt = $conn->prepare("
+        SELECT COUNT(*) as total
+        FROM products
+    ");
+
+}
+
+$countStmt->execute();
+
+$countResult =
+$countStmt->get_result();
+
+$totalRows =
+$countResult->fetch_assoc()['total'];
+
+$totalPages =
+ceil($totalRows / $limit);
 
 if ($sort === "oldest") {
 
@@ -52,7 +107,7 @@ if ($sort === "oldest") {
 
 }
 
-$search = "%{$keyword}%";
+
 
 if (!empty($keyword) && !empty($category)) {
 

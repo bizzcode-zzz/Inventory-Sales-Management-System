@@ -318,6 +318,9 @@ fetch("api_update.php", {
 ========================== */
 function searchProducts() {
 
+    currentPage = 1;
+
+
     let keyword =
         document.getElementById("searchBox").value;
 
@@ -356,18 +359,33 @@ function loadProducts() {
 
     setLoading();
 
-    fetch("fetch_products.php?page=" + currentPage)
+    let keyword =
+        document.getElementById("searchBox").value;
+
+    let category =
+        document.getElementById("categoryFilter").value;
+
+    let sort =
+        document.getElementById("sortFilter").value;
+
+    fetch(
+        "fetch_products.php?page=" + currentPage +
+        "&keyword=" + encodeURIComponent(keyword) +
+        "&category=" + encodeURIComponent(category) +
+        "&sort=" + encodeURIComponent(sort)
+    )
+
     .then(res => res.text())
+
     .then(data => {
 
-        
-     
-
         document.getElementById("productList").innerHTML = data;
-          
+
     });
 
 }
+
+
     function refreshTable() {
     setTimeout(() => {
         loadProducts();
