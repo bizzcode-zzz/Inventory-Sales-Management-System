@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+ 
+
 // 1. HARANG PARA SA HINDI NAKA-LOGIN (Dapat laging una ito)
 if (!isset($_SESSION["user"])) {
     header("Location: login.php");
@@ -456,10 +458,13 @@ if ($stats && $stats->num_rows > 0) {
             Clear Sales History
         </button>
 
-        <button
-onclick="factoryReset()">
-Factory Reset
+        <?php if ($_SESSION["role"] == "admin") { ?>
+
+<button onclick="factoryReset()">
+    Factory Reset
 </button>
+
+<?php } ?>
 
 </div>
 

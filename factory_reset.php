@@ -1,5 +1,18 @@
 <?php
 
+session_start();
+
+if (
+    !isset($_SESSION["role"])
+    || $_SESSION["role"] !== "admin"
+) {
+
+    die("Access Denied");
+
+}
+
+include "db.php";
+
 include "db.php";
 
 mysqli_query(

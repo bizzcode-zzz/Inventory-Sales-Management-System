@@ -16,7 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
 
-        $_SESSION["user"] = $username;
+         $row = $result->fetch_assoc();
+
+         $_SESSION["user"] = $username;
+         $_SESSION["role"] = $row["role"];
 
         header("Location: dashboard.php");
         exit();
