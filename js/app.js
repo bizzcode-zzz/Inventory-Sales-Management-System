@@ -1088,7 +1088,9 @@ function clearSalesHistory() {
         return;
     }
 
-    fetch("clear_sales.php")
+    fetch("clear_sales.php", {
+    method: "POST"
+})
 
     .then(res => res.text())
 
@@ -1143,8 +1145,11 @@ function factoryReset() {
     }
 
     fetch(
-    "factory_reset.php"
-    )
+    "factory_reset.php",
+    {
+        method: "POST"
+    }
+)
 
     .then(res => res.text())
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = new mysqli("localhost", "root", "", "mydb");
 
 /* =========================================
@@ -188,17 +189,27 @@ if ($result && $result->num_rows > 0) {
     }
 
     echo "<td class='action-buttons'>
+
     <button type='button'
     onclick='enableEdit($id, $safeName, $safeCategory, $price, $stock, this)'>
     Edit
-    </button>
+    </button>";
 
-    <button type='button'
+if (
+    isset($_SESSION["role"])
+    && $_SESSION["role"] === "admin"
+) {
+
+    echo "<button type='button'
     onclick='deleteProduct($id, this)'>
     Delete
-    </button>
+    </button>";
 
-    </td>";
+}
+
+echo "</td>";
+
+   
 
     echo "</tr>";
 }

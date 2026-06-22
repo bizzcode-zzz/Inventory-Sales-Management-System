@@ -2,6 +2,12 @@
 
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+
+    die("Invalid Request");
+
+}
+
 if (
     !isset($_SESSION["role"])
     || $_SESSION["role"] !== "admin"
@@ -11,7 +17,6 @@ if (
 
 }
 
-include "db.php";
 
 include "db.php";
 

@@ -1,5 +1,22 @@
 <?php
 
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+
+    die("Invalid Request");
+
+}
+
+if (
+    !isset($_SESSION["role"])
+    || $_SESSION["role"] !== "admin"
+) {
+
+    die("Access Denied");
+
+}
+
 /* =========================================
    DELETE PRODUCT API
 ========================================= */
