@@ -48,6 +48,18 @@ $total =
 
 <style>
 
+@media print {
+
+    #printBtn {
+    display:none;
+    }
+
+}
+
+</style>
+
+<style>
+
 body {
 
     font-family: Arial, sans-serif;
@@ -141,7 +153,10 @@ Date:
 Thank You!
 </p>
 
-<button onclick="window.print()">
+<button
+id="printBtn"
+onclick="window.print()"
+style="padding:10px 20px;">
 🖨 Print Receipt
 </button>
 
