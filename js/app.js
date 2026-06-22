@@ -821,6 +821,7 @@ function loadSalesHistory(
                 <th>Product</th>
                 <th>Qty</th>
                 <th>Amount</th>
+                <th>Receipt</th>
 
             </tr>
 
@@ -842,6 +843,13 @@ function loadSalesHistory(
                 <td>${item.quantity}</td>
 
                 <td>₱${amount.toFixed(2)}</td>
+
+                <td>
+                <button
+                 onclick="printReceipt(${item.id})">
+                🧾 Print
+                </button>
+                </td>
 
             </tr>
 
@@ -1209,5 +1217,17 @@ function backupDatabase() {
 
     window.location.href =
     "backup_database.php";
+
+}
+/* =========================================
+   Print Receipt
+========================================= */
+
+function printReceipt(id) {
+
+    window.open(
+        "receipt.php?id=" + id,
+        "_blank"
+    );
 
 }
