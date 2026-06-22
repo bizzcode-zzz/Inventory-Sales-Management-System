@@ -470,6 +470,14 @@ if ($stats && $stats->num_rows > 0) {
 
 <?php } ?>
 
+<?php if ($_SESSION["role"] == "admin") { ?>
+
+<button onclick="backupDatabase()">
+💾 Backup Database
+</button>
+
+<?php } ?>
+
 </div>
 
 <!-- =========================================

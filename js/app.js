@@ -1182,3 +1182,14 @@ function factoryReset() {
     });
 
 }
+
+/* =========================================
+   BACK UP DATABASE
+========================================= */
+
+function backupDatabase() {
+
+    window.location.href =
+    "backup_database.php";
+
+}
