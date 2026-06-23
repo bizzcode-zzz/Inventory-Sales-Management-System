@@ -63,7 +63,7 @@ while (
 
         echo "
         <button
-        
+
         onclick='editUser(
         {$row["id"]},
         \"{$row["username"]}\",
@@ -75,6 +75,11 @@ while (
         <button
         onclick='deleteUser({$row["id"]})'>
         Delete
+        </button>
+
+        <button
+        onclick='resetPassword({$row["id"]})'>
+        Reset Password
         </button>
         ";
 

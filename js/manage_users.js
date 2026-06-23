@@ -168,3 +168,45 @@ function(e) {
 });
 
  
+
+function resetPassword(id) {
+
+    let newPassword =
+    prompt(
+        "Enter New Password"
+    );
+
+    if (
+        !newPassword
+    ) {
+        return;
+    }
+
+    fetch(
+        "api_reset_password.php",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                "application/x-www-form-urlencoded"
+            },
+
+            body:
+            "id=" + id +
+            "&password=" +
+            encodeURIComponent(
+                newPassword
+            )
+        }
+    )
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        alert(data);
+
+    });
+
+}
