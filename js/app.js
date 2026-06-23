@@ -410,6 +410,7 @@ function loadProducts() {
     loadTodayRevenue();
     loadMonthRevenue();
     loadBestCategory();
+    loadSalesToday();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -733,6 +734,7 @@ function recordSale() {
         loadTodayRevenue();
         loadMonthRevenue();
         loadBestCategory();
+        loadSalesToday();
 
     });
 
@@ -1324,6 +1326,27 @@ function loadBestCategory() {
             "bestCategory"
         ).innerText =
         data.category || "N/A";
+
+    });
+
+}
+
+
+/* =========================================
+  Sales today, lahi ni sa todays revenue
+========================================= */
+function loadSalesToday() {
+
+    fetch("fetch_sales_today.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "salesToday"
+        ).innerText =
+        data.sales_today;
 
     });
 

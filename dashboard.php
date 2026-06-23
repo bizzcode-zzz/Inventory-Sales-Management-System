@@ -231,6 +231,16 @@ if ($stats && $stats->num_rows > 0) {
     </p>
 
 </div>
+
+<div class="stat-card">
+
+    <h3>Sales Today</h3>
+
+    <p id="salesToday">
+        0
+    </p>
+
+</div>
   
 
         </div>
