@@ -409,6 +409,7 @@ function loadProducts() {
     loadItemsSold();
     loadTodayRevenue();
     loadMonthRevenue();
+    loadBestCategory();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -731,6 +732,7 @@ function recordSale() {
         loadItemsSold();
         loadTodayRevenue();
         loadMonthRevenue();
+        loadBestCategory();
 
     });
 
@@ -1302,6 +1304,26 @@ function loadMonthRevenue() {
         parseFloat(
             data.month_revenue
         ).toFixed(2);
+
+    });
+
+}
+/* =========================================
+  Best selling Category kauban ni sya sa top selling product
+========================================= */
+
+function loadBestCategory() {
+
+    fetch("fetch_best_category.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "bestCategory"
+        ).innerText =
+        data.category || "N/A";
 
     });
 

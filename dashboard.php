@@ -473,6 +473,20 @@ if ($stats && $stats->num_rows > 0) {
 
 </div>
 
+<div class="stat-card">
+<!-- =========================================
+         Best selling Category
+    ========================================== -->
+    <h3>🏆 Best Selling Category</h3>
+
+    <p id="bestCategory">
+
+        N/A
+
+    </p>
+
+</div>
+
 <!-- =========================================
      SALES FILTER  
 ========================================= -->
