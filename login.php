@@ -9,27 +9,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     $sql = "SELECT * FROM users
-            WHERE username='$username'
-            AND password='$password'";
+        WHERE username='$username'";
 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
 
-         $row = $result->fetch_assoc();
-         $_SESSION["user_id"] = $row["id"];
-         $_SESSION["user"] = $username;
-         $_SESSION["role"] = $row["role"];
+    $row = $result->fetch_assoc();
+
+    if (
+        password_verify(
+            $password,
+            $row["password"]
+        )
+    ) {
+
+        $_SESSION["user_id"] =
+        $row["id"];
+
+        $_SESSION["user"] =
+        $username;
+
+        $_SESSION["role"] =
+        $row["role"];
 
         header("Location: dashboard.php");
         exit();
 
     } else {
 
-        echo "Wrong Username or Password";
-    }
-}
+        echo "Invalid Password";
 
+    }
+
+} else {
+
+    echo "User Not Found";
+
+}
+}
 $conn->close();
 ?>
 
