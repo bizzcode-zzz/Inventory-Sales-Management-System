@@ -180,6 +180,16 @@ if ($stats && $stats->num_rows > 0) {
 
             </div>
 
+            <div class="stat-card">
+
+    <h3>Total Items Sold</h3>
+
+    <div id="totalItemsSold">
+        0
+    </div>
+
+</div>
+
         </div>
 
         <!-- =========================================

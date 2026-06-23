@@ -406,6 +406,7 @@ function loadProducts() {
     loadSalesHistory();
     loadDailySalesChart();
     loadTopProductsChart();
+    loadItemsSold();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -725,6 +726,7 @@ function recordSale() {
         loadSalesHistory();
         loadDailySalesChart();
         loadTopProductsChart();
+        loadItemsSold();
 
     });
 
@@ -1229,5 +1231,26 @@ function printReceipt(id) {
         "receipt.php?id=" + id,
         "_blank"
     );
+
+}
+
+/* =========================================
+   TOTAL ITEM SOLD Kauban ni sya sa total products,average price, highest price
+========================================= */
+
+function loadItemsSold() {
+
+    fetch("fetch_items_sold.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "totalItemsSold"
+        ).innerText =
+        data.total_items_sold;
+
+    });
 
 }
