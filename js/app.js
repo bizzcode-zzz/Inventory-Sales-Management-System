@@ -411,6 +411,7 @@ function loadProducts() {
     loadMonthRevenue();
     loadBestCategory();
     loadSalesToday();
+    loadWeekRevenue();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -735,6 +736,7 @@ function recordSale() {
         loadMonthRevenue();
         loadBestCategory();
         loadSalesToday();
+        loadWeekRevenue();
 
     });
 
@@ -1310,6 +1312,31 @@ function loadMonthRevenue() {
     });
 
 }
+
+/* =========================================
+  This week revenue
+========================================= */
+
+function loadWeekRevenue() {
+
+    fetch("fetch_week_revenue.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "weekRevenue"
+        ).innerText =
+        "₱" +
+        parseFloat(
+            data.week_revenue
+        ).toFixed(2);
+
+    });
+
+}
+
 /* =========================================
   Best selling Category kauban ni sya sa top selling product
 ========================================= */
@@ -1351,3 +1378,4 @@ function loadSalesToday() {
     });
 
 }
+

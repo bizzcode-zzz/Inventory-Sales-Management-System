@@ -184,18 +184,6 @@ if ($stats && $stats->num_rows > 0) {
 
             </div>
 
-        
-<div class="stat-card">
-
-    <h3>Total Revenue</h3>
-
-    <p id="totalRevenue">
-
-        ₱0.00
-
-    </p>
-
-</div>
 
             <div class="stat-card">
 
@@ -220,6 +208,20 @@ if ($stats && $stats->num_rows > 0) {
 
 </div>
 
+
+<div class="stat-card">
+
+    <h3>This Week Revenue</h3>
+
+    <p id="weekRevenue">
+
+        ₱0.00
+
+    </p>
+
+</div>
+
+
 <div class="stat-card">
 
     <h3>This Month Revenue</h3>
@@ -242,6 +244,18 @@ if ($stats && $stats->num_rows > 0) {
 
 </div>
   
+
+<div class="stat-card">
+
+    <h3>Total Revenue</h3>
+
+    <p id="totalRevenue">
+
+        ₱0.00
+
+    </p>
+
+</div>
 
         </div>
 
