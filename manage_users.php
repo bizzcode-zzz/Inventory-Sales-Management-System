@@ -56,6 +56,50 @@ include "db.php";
 
 </form>
 
+<hr>
+
+<h3>Edit User</h3>
+
+<form id="editUserForm">
+
+    <input
+        type="hidden"
+        id="editId"
+        name="id"
+    >
+
+    <input
+        type="text"
+        id="editUsername"
+        name="username"
+        placeholder="Username"
+        required
+    >
+
+    <select
+        id="editRole"
+        name="role"
+    >
+
+        <option value="staff">
+            Staff
+        </option>
+
+        <option value="admin">
+            Admin
+        </option>
+
+    </select>
+
+    <button type="submit">
+
+        Update User
+
+    </button>
+
+</form>
+
+
 <div id="userList"></div>
 
  <script>
@@ -153,5 +197,69 @@ function deleteUser(id) {
     });
 
 }
+
+
+function editUser(
+    id,
+    username,
+    role
+) {
+
+    document.getElementById(
+        "editId"
+    ).value = id;
+
+    document.getElementById(
+        "editUsername"
+    ).value = username;
+
+    document.getElementById(
+        "editRole"
+    ).value = role;
+
+}
+
+document
+.getElementById(
+"editUserForm"
+)
+
+.addEventListener(
+"submit",
+
+function(e) {
+
+    e.preventDefault();
+
+    let formData =
+    new FormData(this);
+
+    fetch(
+        "api_update_user.php",
+        {
+            method: "POST",
+            body: formData
+        }
+    )
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        if (
+            data === "success"
+        ) {
+
+            alert(
+                "User Updated"
+            );
+
+            loadUsers();
+
+        }
+
+    });
+
+});
 
 </script>
