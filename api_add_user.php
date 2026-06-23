@@ -56,3 +56,14 @@ $stmt->bind_param(
 $stmt->execute();
 
 echo "success";
+
+$log = "Added User: " . $username;
+
+$logStmt = $conn->prepare(
+    "INSERT INTO activity_logs (activity)
+     VALUES (?)"
+);
+
+$logStmt->bind_param("s", $log);
+$logStmt->execute();
+$logStmt->close();

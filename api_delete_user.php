@@ -22,7 +22,7 @@ $id =
 $stmt =
 $conn->prepare(
 "
-SELECT role
+SELECT username, role
 FROM users
 WHERE id = ?
 "
@@ -40,6 +40,15 @@ $stmt->get_result();
 
 $user =
 $result->fetch_assoc();
+
+if (!$user) {
+
+    die("User not found.");
+
+}
+
+$usernameToDelete =
+$user["username"];
 
 
 
@@ -91,16 +100,7 @@ if (
 
 }
 
-if (
-    $id ==
-    $_SESSION["user_id"]
-) {
 
-    die(
-        "You cannot delete your own account."
-    );
-
-}
 
 $stmt =
 $conn->prepare(
@@ -116,5 +116,20 @@ $stmt->bind_param(
 );
 
 $stmt->execute();
+
+$log = "Deleted User: " . $usernameToDelete;
+
+$logStmt = $conn->prepare(
+    "INSERT INTO activity_logs (activity)
+     VALUES (?)"
+);
+
+$logStmt->bind_param(
+    "s",
+    $log
+);
+
+$logStmt->execute();
+$logStmt->close();
 
 echo "User Deleted";
