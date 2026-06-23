@@ -140,6 +140,10 @@ if ($stats && $stats->num_rows > 0) {
              Total Products
              Average Price
              Highest Price
+             Total Revenue
+             Total Item Sold
+             Monthly Revenue
+             
         ========================================== -->
 
         <div class="stats">
@@ -180,6 +184,19 @@ if ($stats && $stats->num_rows > 0) {
 
             </div>
 
+        
+<div class="stat-card">
+
+    <h3>Total Revenue</h3>
+
+    <p id="totalRevenue">
+
+        ₱0.00
+
+    </p>
+
+</div>
+
             <div class="stat-card">
 
     <h3>Total Items Sold</h3>
@@ -189,6 +206,32 @@ if ($stats && $stats->num_rows > 0) {
     </div>
 
 </div>
+
+
+<div class="stat-card">
+
+    <h3>Today's Revenue</h3>
+
+    <p id="todayRevenue">
+
+        ₱0.00
+
+    </p>
+
+</div>
+
+<div class="stat-card">
+
+    <h3>This Month Revenue</h3>
+
+    <p id="monthRevenue">
+
+        ₱0.00
+
+    </p>
+
+</div>
+  
 
         </div>
 
@@ -413,20 +456,7 @@ if ($stats && $stats->num_rows > 0) {
 
 </div>
 
-    <!-- =========================================
-         TOTAL REVENUE
-    ========================================== -->
-<div class="stat-card">
-
-    <h3>Total Revenue</h3>
-
-    <p id="totalRevenue">
-
-        ₱0.00
-
-    </p>
-
-</div>
+  
 
 <!-- =========================================
          Top selling product

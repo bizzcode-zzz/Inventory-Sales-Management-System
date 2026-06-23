@@ -407,6 +407,8 @@ function loadProducts() {
     loadDailySalesChart();
     loadTopProductsChart();
     loadItemsSold();
+    loadTodayRevenue();
+    loadMonthRevenue();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -727,6 +729,8 @@ function recordSale() {
         loadDailySalesChart();
         loadTopProductsChart();
         loadItemsSold();
+        loadTodayRevenue();
+        loadMonthRevenue();
 
     });
 
@@ -1250,6 +1254,54 @@ function loadItemsSold() {
             "totalItemsSold"
         ).innerText =
         data.total_items_sold;
+
+    });
+
+}
+
+/* =========================================
+   Today's Revenue SOLD Kauban ni sya sa total products,average price, highest price
+========================================= */
+
+function loadTodayRevenue() {
+
+    fetch("fetch_today_revenue.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "todayRevenue"
+        ).innerText =
+        "₱" +
+        parseFloat(
+            data.today_revenue
+        ).toFixed(2);
+
+    });
+
+}
+
+/* =========================================
+   Monthly Revenue SOLD Kauban ni sya sa total products,average price, highest price
+========================================= */
+
+function loadMonthRevenue() {
+
+    fetch("fetch_month_revenue.php")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        document.getElementById(
+            "monthRevenue"
+        ).innerText =
+        "₱" +
+        parseFloat(
+            data.month_revenue
+        ).toFixed(2);
 
     });
 
