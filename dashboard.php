@@ -257,7 +257,12 @@ if ($stats && $stats->num_rows > 0) {
 
 </div>
 
-<h3>⚠ Low Stock Alerts</h3>
+
+<h3 id="lowStockTitle">
+
+⚠ Low Stock Alerts
+
+</h3>
 
 <div id="lowStockList">
 
@@ -265,7 +270,7 @@ Loading...
 
 </div>
 
-        </div>
+         
 
         <!-- =========================================
              STOCK STATUS CARDS

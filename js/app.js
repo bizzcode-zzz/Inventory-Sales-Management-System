@@ -128,6 +128,8 @@ function saveProduct() {
     loadDailySalesChart();
     loadTopProductsChart();
     loadTop5Products();
+    loadLowStock();
+    loadLowStockCount();
 
 
 
@@ -179,6 +181,8 @@ function deleteProduct(id, btn) {
         loadDailySalesChart();
         loadTopProductsChart();
         loadTop5Products();
+        loadLowStock();
+        loadLowStockCount();
 
     } else {
     alert("DELETE ELSE BLOCK");
@@ -303,7 +307,9 @@ fetch("api_update.php", {
     loadDailySalesChart();
     loadTopProductsChart();
     loadLowStock();
+    loadLowStockCount();
     loadTop5Products();
+    
 
 
     } else {
@@ -416,8 +422,9 @@ function loadProducts() {
     loadSalesToday();
     loadWeekRevenue();
     loadLowStock();
+    loadLowStockCount();
     loadTop5Products();
-    loadTop5Products();
+    
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -773,6 +780,8 @@ function recordSale() {
         loadSalesToday();
         loadWeekRevenue();
         loadTop5Products();
+        loadLowStock();
+        loadLowStockCount();
 
     });
 
@@ -1251,6 +1260,8 @@ function factoryReset() {
     loadDailySalesChart();
     loadTopProductsChart();
     loadTop5Products();
+    loadLowStock();
+    loadLowStockCount();
 
         }
 
@@ -1478,6 +1489,31 @@ function loadTop5Products() {
         document.getElementById(
             "top5Products"
         ).innerHTML = data;
+
+    });
+
+}
+
+/* =========================================
+  LOW STOCK COUNT lahit sa low stock alert
+========================================= */
+function loadLowStockCount() {
+
+    fetch(
+        "fetch_low_stock_count.php"
+    )
+
+    .then(res => res.text())
+
+    .then(count => {
+
+        document.getElementById(
+            "lowStockTitle"
+        ).innerHTML =
+
+        "⚠ Low Stock Alerts (" +
+        count +
+        ")";
 
     });
 
