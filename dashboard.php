@@ -585,6 +585,16 @@ Loading...
 
 <?php } ?>
 
+<button
+onclick="
+window.location.href=
+'export_sales_csv.php'
+">
+
+Export Sales CSV
+
+</button>
+
 </div>
 
 <!-- =========================================
