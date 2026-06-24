@@ -127,6 +127,7 @@ function saveProduct() {
     loadSalesHistory();
     loadDailySalesChart();
     loadTopProductsChart();
+    loadTop5Products();
 
 
 
@@ -177,6 +178,7 @@ function deleteProduct(id, btn) {
         loadSalesHistory();
         loadDailySalesChart();
         loadTopProductsChart();
+        loadTop5Products();
 
     } else {
     alert("DELETE ELSE BLOCK");
@@ -301,6 +303,7 @@ fetch("api_update.php", {
     loadDailySalesChart();
     loadTopProductsChart();
     loadLowStock();
+    loadTop5Products();
 
 
     } else {
@@ -413,6 +416,8 @@ function loadProducts() {
     loadSalesToday();
     loadWeekRevenue();
     loadLowStock();
+    loadTop5Products();
+    loadTop5Products();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -767,6 +772,7 @@ function recordSale() {
         loadBestCategory();
         loadSalesToday();
         loadWeekRevenue();
+        loadTop5Products();
 
     });
 
@@ -1244,6 +1250,7 @@ function factoryReset() {
     loadSalesHistory();
     loadDailySalesChart();
     loadTopProductsChart();
+    loadTop5Products();
 
         }
 
@@ -1454,3 +1461,24 @@ document.addEventListener(
 
     }
 );
+
+/* =========================================
+  TOP 5 PRODUCTS
+========================================= */
+function loadTop5Products() {
+
+    fetch(
+        "fetch_top5_products.php"
+    )
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        document.getElementById(
+            "top5Products"
+        ).innerHTML = data;
+
+    });
+
+}
