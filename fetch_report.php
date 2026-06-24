@@ -102,68 +102,74 @@ $topProductQuery
 
 echo "
 
-<h3>
+<div class='report-cards'>
 
-💰 Total Revenue
+    <div class='report-card'>
 
-</h3>
+        <h3>
+        💰 Revenue
+        </h3>
 
-<p>
+        <p>
 
-₱
+        ₱
 
-" .
+        " .
 
-number_format(
-    $row["total_revenue"] ?? 0,
-    2
-)
+        number_format(
+            $row["total_revenue"] ?? 0,
+            2
+        )
 
-.
+        .
 
-"</p>
+        "</p>
 
-";
+    </div>
 
-echo "
+    <div class='report-card'>
 
-<h3>
+        <h3>
+        🏆 Top Product
+        </h3>
 
-🏆 Top Product
+        <p>
 
-</h3>
+        " .
 
-<p>
+        (
+            $topProduct["product_name"]
+            ?? "No Data"
+        )
 
-" .
+        .
 
-($topProduct["product_name"]
-?? "No Data")
+        "</p>
 
-.
+    </div>
 
-"</p>
+    <div class='report-card'>
 
-";
+        <h3>
+        📦 Items Sold
+        </h3>
 
-echo "
+        <p>
 
-<h3>
+        " .
 
-📦 Total Items Sold
+        (
+            $totalItems["total_items"]
+            ?? 0
+        )
 
-</h3>
+        .
 
-<p>
+        "</p>
 
-" .
+    </div>
 
-($totalItems["total_items"]
-?? 0)
-
-.
-
-"</p>
+</div>
 
 ";
 

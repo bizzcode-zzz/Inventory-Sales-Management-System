@@ -56,6 +56,20 @@ Select a date range.
 
 </div>
 
+<div
+style="
+height:350px;
+margin-top:20px;
+">
+
+<canvas
+id="reportRevenueChart">
+
+</canvas>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="js/reports.js"></script>
 
 </body>
