@@ -300,7 +300,7 @@ fetch("api_update.php", {
     loadSalesHistory();
     loadDailySalesChart();
     loadTopProductsChart();
-
+    loadLowStock();
 
 
     } else {
@@ -412,6 +412,7 @@ function loadProducts() {
     loadBestCategory();
     loadSalesToday();
     loadWeekRevenue();
+    loadLowStock();
 
     document.getElementById("searchBox")
     .addEventListener("keyup", searchProducts);
@@ -1379,3 +1380,23 @@ function loadSalesToday() {
 
 }
 
+/* =========================================
+  Low Stocks Alert
+========================================= */
+function loadLowStock() {
+
+    fetch(
+        "fetch_low_stock.php"
+    )
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        document.getElementById(
+            "lowStockList"
+        ).innerHTML = data;
+
+    });
+
+}

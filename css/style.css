@@ -334,3 +334,14 @@ a:hover {
     margin-bottom: 10px;
 }
 
+.low-stock-item {
+
+    padding: 10px;
+
+    margin-bottom: 8px;
+
+    border-radius: 8px;
+
+    background: #2a2a2a;
+
+}
