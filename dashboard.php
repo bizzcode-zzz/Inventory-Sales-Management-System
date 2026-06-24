@@ -705,6 +705,26 @@ Loading...
 
     <h3>Recent Activity</h3>
 
+    <input
+        type="text"
+        id="logSearch"
+        placeholder="Search logs..."
+    >
+
+    <input
+    type="date"
+    id="logStartDate"
+    >
+
+    <input
+    type="date"
+    id="logEndDate"
+    >
+
+<button onclick="loadLogs()">
+    Filter
+</button>
+
     <div id="activityLogs">
 
         Loading logs...

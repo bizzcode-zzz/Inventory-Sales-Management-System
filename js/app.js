@@ -508,11 +508,40 @@ function closeImage() {
 ========================== */
 function loadLogs() {
 
-    fetch("fetch_logs.php")
+    let keyword =
+    document.getElementById(
+        "logSearch"
+    )?.value || "";
+
+    let startDate =
+    document.getElementById(
+        "logStartDate"
+    )?.value || "";
+
+    let endDate =
+    document.getElementById(
+        "logEndDate"
+    )?.value || "";
+
+    fetch(
+        "fetch_logs.php" +
+        "?search=" +
+        encodeURIComponent(keyword)
+        +
+        "&startDate=" +
+        startDate
+        +
+        "&endDate=" +
+        endDate
+    )
+
     .then(res => res.text())
+
     .then(data => {
 
-        document.getElementById("activityLogs").innerHTML = data;
+        document.getElementById(
+            "activityLogs"
+        ).innerHTML = data;
 
     });
 
@@ -1400,3 +1429,28 @@ function loadLowStock() {
     });
 
 }
+
+/* =========================================
+  REAL TIME LOG SEARCH for USERS ACTIVITY
+========================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+
+    function() {
+
+        const searchBox =
+        document.getElementById(
+            "logSearch"
+        );
+
+        if (searchBox) {
+
+            searchBox.addEventListener(
+                "input",
+                loadLogs
+            );
+
+        }
+
+    }
+);
