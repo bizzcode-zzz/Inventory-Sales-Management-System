@@ -41,6 +41,12 @@ onclick="loadReport()">
 Generate Report
 
 </button>
+<button
+onclick="exportReport()">
+
+Export Report CSV
+
+</button>
 
 <hr>
 

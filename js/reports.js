@@ -31,3 +31,38 @@ function loadReport() {
     });
 
 }
+
+
+function exportReport() {
+
+    let startDate =
+    document.getElementById(
+        "startDate"
+    ).value;
+
+    let endDate =
+    document.getElementById(
+        "endDate"
+    ).value;
+
+    window.location.href =
+
+    "export_report_csv.php"
+
+    +
+
+    "?startDate="
+
+    +
+
+    startDate
+
+    +
+
+    "&endDate="
+
+    +
+
+    endDate;
+
+}
