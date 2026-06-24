@@ -47,6 +47,12 @@ onclick="exportReport()">
 Export Report CSV
 
 </button>
+<button
+onclick="exportPDF()">
+
+Export PDF
+
+</button>
 
 <hr>
 
@@ -55,6 +61,7 @@ Export Report CSV
 Select a date range.
 
 </div>
+
 
 <div
 style="

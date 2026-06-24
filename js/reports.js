@@ -221,3 +221,38 @@ function loadRevenueChart() {
     });
 
 }
+
+
+function exportPDF() {
+
+    let startDate =
+    document.getElementById(
+        "startDate"
+    ).value;
+
+    let endDate =
+    document.getElementById(
+        "endDate"
+    ).value;
+
+    window.location.href =
+
+    "export_report_pdf.php"
+
+    +
+
+    "?startDate="
+
+    +
+
+    startDate
+
+    +
+
+    "&endDate="
+
+    +
+
+    endDate;
+
+}
