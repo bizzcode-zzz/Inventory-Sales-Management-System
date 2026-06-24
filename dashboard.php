@@ -595,6 +595,16 @@ Export Sales CSV
 
 </button>
 
+<button
+onclick="
+window.location.href=
+'export_logs_csv.php'
+">
+
+Export Logs CSV
+
+</button>
+
 </div>
 
 <!-- =========================================
