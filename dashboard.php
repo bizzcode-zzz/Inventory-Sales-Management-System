@@ -145,6 +145,11 @@ if ($stats && $stats->num_rows > 0) {
              Monthly Revenue
              
         ========================================== -->
+        <h2 class="section-title">
+
+📊 Dashboard Overview
+
+</h2>
 
         <div class="stats">
 
@@ -258,7 +263,12 @@ if ($stats && $stats->num_rows > 0) {
 </div>
 
 
-<h3 id="lowStockTitle">
+
+
+
+</div>
+<div>
+    <h3 id="lowStockTitle">
 
 ⚠ Low Stock Alerts
 
@@ -267,7 +277,6 @@ if ($stats && $stats->num_rows > 0) {
 <div id="lowStockList">
 
 Loading...
-
 </div>
 
          
@@ -310,43 +319,52 @@ Loading...
      CATEGORY CHART
      Products Per Category
 ========================================= -->
+<div class="chart-grid">
 
 <div class="card">
-
-    <h2>Products Per Category</h2>
-
+    <h2>📈 Category Chart</h2>
     <div class="chart-container">
-
         <canvas id="categoryChart"></canvas>
-
     </div>
-
 </div>
-
-<!-- =========================================
-     STOCK STATUS CHART
-     In Stock / Low Stock / Out Of Stock
-========================================= -->
 
 <div class="card">
-
-    <h2>Stock Status</h2>
-
-    <div style="height: 400px; width: 100%;">
-
+    <h2>📈 Stock Status</h2>
+    <div class="chart-container">
         <canvas id="stockChart"></canvas>
-
     </div>
-
 </div>
+
+<div class="card">
+    <h2>🏆 Top Products</h2>
+    <div class="chart-container">
+        <canvas id="topProductsChart"></canvas>
+    </div>
+</div>
+
+<div class="card">
+    <h2>📈 Daily Sales Revenue</h2>
+    <div class="chart-container">
+        <canvas id="dailySalesChart"></canvas>
+    </div>
+</div>
+</div>
+
+
+
 
 <!-- =========================================
      PRODUCT MANAGEMENT
      Add New Product Form
 ========================================= -->
 
-<div class="card">
+<div class="settings-card">
+    <h2 class="section-title">
 
+📦 Inventory Management
+
+</h2>
+<div class="settings-card">
     <h2>Product Management</h2>
 
     <h3>Add New Product</h3>
@@ -395,7 +413,7 @@ Loading...
 
         <!-- Product Price -->
 
-        <div style="margin-bottom: 10px;">
+        <div >
 
             <label>Price (Php):</label><br>
 
@@ -408,7 +426,7 @@ Loading...
 
         <!-- Product Stock -->
 
-        <div style="margin-bottom: 10px;">
+        <div>
 
             <label>Stock:</label><br>
 
@@ -422,7 +440,7 @@ Loading...
 
         <!-- Product Image -->
 
-        <div style="margin-bottom: 20px;">
+        <div >
 
             <label>Product Image:</label><br>
 
@@ -441,7 +459,7 @@ Loading...
 
         <!-- Save Button -->
 
-        <div style="margin-bottom: 10px;">
+        <div >
 
             <button type="button"
                     onclick="saveProduct()">
@@ -454,13 +472,15 @@ Loading...
 
     </form>
 
+</div>
     <br>
+    
 
     <!-- =========================================
      SALES ENTRY
 ========================================= -->
 
-<div class="card">
+<div class="settings-card">
 
     <h2>Record Sale</h2>
 
@@ -492,6 +512,7 @@ Loading...
     </button>
 
 </div>
+</div>
 
   
 
@@ -519,8 +540,10 @@ Loading...
     <p id="bestCategory">
 
         N/A
+        
 
     </p>
+    
 
 </div>
 <!-- =========================================
@@ -543,6 +566,14 @@ Loading...
 <!-- =========================================
      SALES FILTER  
 ========================================= -->
+
+<h2 class="section-title">
+
+💰 Sales Management
+
+</h2>
+
+
 <div class="card">
 
     <h2>Sales Filter</h2>
@@ -623,32 +654,7 @@ Export Logs CSV
 
 </div>
 
-    <!-- =========================================
-         Daily Sales Revenue
-    ========================================== -->
-<div class="card">
-
-    <h2>📈 Daily Sales Revenue</h2>
-
-    <div class="chart-container">
-
-        <canvas id="dailySalesChart"></canvas>
-
-    </div>
-
-</div>
-
-<div class="card">
-
-    <h2>🏆 Top Products</h2>
-
-    <div class="chart-container">
-
-        <canvas id="topProductsChart"></canvas>
-
-    </div>
-
-</div>
+   
 
 
 
@@ -658,7 +664,7 @@ Export Logs CSV
          SEARCH / FILTER / SORT
     ========================================== -->
 
-    <div>
+    <div class="filters">
 
         <input type="text"
                id="searchBox"
@@ -742,7 +748,14 @@ Export Logs CSV
      RECENT ACTIVITY LOGS
 ========================================= -->
 
-<div class="card">
+
+
+<div class="settings-card">
+    <h2 class="section-title">
+
+📝 Activity Logs
+
+</h2>
 
     <h3>Recent Activity</h3>
 
@@ -751,7 +764,7 @@ Export Logs CSV
         id="logSearch"
         placeholder="Search logs..."
     >
-
+<div class="filters">
     <input
     type="date"
     id="logStartDate"
@@ -765,7 +778,7 @@ Export Logs CSV
 <button onclick="loadLogs()">
     Filter
 </button>
-
+</div>
     <div id="activityLogs">
 
         Loading logs...

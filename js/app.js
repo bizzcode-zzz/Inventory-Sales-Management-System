@@ -608,6 +608,7 @@ function loadCategoryChart() {
         }
 
         categoryChart = new Chart(ctx, {
+            
 
             type: "bar",
 
@@ -628,18 +629,29 @@ function loadCategoryChart() {
 
                 responsive: true,
                 maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                        labels: {
+                            color: "#ffffff" // Gagawin nitong puti ang kulay ng text ng legend
+                        }
+                    }
+                },
+
+                
 
                 scales: {
 
                     y: {
+                        
 
                         beginAtZero: true
 
                     }
                 }
             }
+            
         });
-
+categoryChart.resize();
     });
 
 }
